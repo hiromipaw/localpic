@@ -19,7 +19,9 @@ class ImageFilter < ServiceWorker
   end
 
   private
-    
+    def process_filter
+    end
+
 
 
 end

@@ -3,6 +3,8 @@ require 'celluloid'
 
 class ServiceWorker
   include Sidekiq::Worker
+  include Celluloid
+  include FileOperations
 
   class RequestError < StandardError; end
   class BadRequestError < RequestError; end
