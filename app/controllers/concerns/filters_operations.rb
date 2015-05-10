@@ -9,7 +9,10 @@ module FiltersOperations
   end
 
   def create_filter(params)
-    filter = Filter.create(filter_id: params[:id], message: 'Accepted', location: "filters/#{params[:id]}", code: 202, status: 202)
+    filter = Filter.create(filter_id: params[:id],
+                           message: 'Accepted',
+                           location: "filters/#{params[:id]}",
+                           code: 202, status: 202)
     if filter
       filter.serialize
     else
