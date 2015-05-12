@@ -15,13 +15,17 @@ class ImageFilter < ServiceWorker
     setup_options_as_instance_variables(options)
     logger.info "[id=#{@id}] FilterImages work started."
     process_filter
-    perform_callbacks("filters/#{@user_id}/#{@issue_id}/#{@id}")
+    perform_callbacks("filters/#{@id}")
   end
 
   private
     def process_filter
+      MiniMagick::Tool::Convert.new do |builder|
+        builder << @image
+        builder << "-sepia-tone 80%"
+        builder << @image
+      end
+
     end
-
-
 
 end

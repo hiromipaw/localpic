@@ -1,7 +1,7 @@
 module FileOperations
 
-  def set_aws_bucket(bucket)
-    AWS::S3.new(region: ENV['S3_REGION'], access_key_id: ENV['S3_ACCESS_KEY_ID'], secret_access_key: ENV['S3_SECRET']).buckets[bucket]
+  def set_aws_bucket(s3_region, s3_access_key_id, s3_secret, s3_bucket)
+    AWS::S3.new(region: s3_region, access_key_id: s3_access_key_id, secret_access_key: s3_secret).buckets[s3_bucket]
   end
 
   def get_file_from_aws(bucket, original_jpg_tmp_path, path, id)
@@ -10,7 +10,7 @@ module FileOperations
         file.write(chunk)
       end
     end
-    logger.info "[id=#{id}] Finished downloading '#{path}' from '#{ENV['S3_BUCKET_DOWNLOAD']}'."
+    logger.info "[id=#{id}] Finished downloading '#{path}' from '#{s3_bucket}'."
   end
 
   def s3_logging_error(id)
