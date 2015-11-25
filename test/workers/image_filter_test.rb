@@ -1,5 +1,6 @@
 require 'test_helper'
 require "benchmark"
+require 'sidekiq/testing'
 
 class ImageFilterTest < ActiveSupport::TestCase
   setup do

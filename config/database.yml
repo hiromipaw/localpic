@@ -1,12 +1,8 @@
 default: &default
   encoding: utf-8
-  username: postgres
-  password: password5
   pool: 5
   timeout: 5000
-  su_username: postgres_su        # a superuser for the database
-  su_password:                    # the superuser's password
-
+  
 development:
   <<: *default
   database: localpic_db_dev

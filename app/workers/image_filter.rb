@@ -1,5 +1,4 @@
 class ImageFilter < ServiceWorker
-  include ImageOperations
 
   sidekiq_options queue: :low
 
